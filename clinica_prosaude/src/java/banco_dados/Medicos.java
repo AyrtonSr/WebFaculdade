@@ -75,13 +75,14 @@ public class Medicos {
     }
     
     public boolean alterarRegistro(C_Medicos medicos){
-        String strComandoSQL = "UPDATE medicos set nome_medico = ?, CRM = ?, codigo_especialidade = ?";
+        String strComandoSQL = "UPDATE medicos set nome_medico = ?, CRM = ?, codigo_especialidade = ? WHERE codigo_medico = ?";
         
         try{
             psComando = conBanco.prepareStatement(strComandoSQL);
             psComando.setString(1, medicos.getNomeMedico());
             psComando.setString(2, medicos.getCrm());
             psComando.setInt(3, medicos.getCodespecialidade());
+            psComando.setInt(4, medicos.getCodigomedico());
             psComando.executeUpdate();
             return true;
         }catch(SQLException erro){

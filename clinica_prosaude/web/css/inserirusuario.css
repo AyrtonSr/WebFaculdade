@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+p:first-of-type {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    width: 100%; /* Ensures full width within the form */
+    box-sizing: border-box;
+}
+
+form p {
+    margin: 0;
+}
+
+form p label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: block;
+}
+
+form .module-group {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+form .module-group p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+form .module-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form input[type="submit"],
+form .LinkVoltar a {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+form input[type="submit"]:hover,
+form .LinkVoltar a:hover {
+    background-color: #2980b9;
+}
+
+form .LinkVoltar a {
+    background-color: #fff;
+    color: #3498db;
+    border: 1px solid #3498db;
+    padding: 10px 15px;
+}
+
+form .LinkVoltar a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+footer {
+    font-size: 12px;
+    color: #95a5a6;
+    text-align: center;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-top: 1px solid #bdc3c7;
+}
+
+@media (max-width: 600px) {
+    p:first-of-type, p:nth-of-type(2) {
+        font-size: 20px;
+    }
+    p:nth-of-type(2) {
+        font-size: 16px;
+    }
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="submit"] {
+        font-size: 14px;
+    }
+}

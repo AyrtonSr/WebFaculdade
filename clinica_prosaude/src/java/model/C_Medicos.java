@@ -22,10 +22,11 @@ public class C_Medicos {
     
     
 
-    public C_Medicos(String nomeMedico, String crm, int codespecialidade) {
+    public C_Medicos(String nomeMedico, String crm, int codespecialidade, int codigomedico) {
         this.nomeMedico = nomeMedico;
         this.crm = crm;
         this.codespecialidade = codespecialidade;
+        this.codigomedico = codigomedico;
     }
 
     public String getNomeMedico() {

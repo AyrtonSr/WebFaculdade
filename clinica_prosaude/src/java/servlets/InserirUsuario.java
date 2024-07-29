@@ -42,11 +42,12 @@ public class InserirUsuario extends HttpServlet {
         out.println("<head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
         out.println("<title>SGC - Versão 1.0</title>");
-        out.println("<link href='clinica_medica.css' rel='stylesheet' type='text/css' />");
+        out.println("<link href='css/inserirusuario2.css' rel='stylesheet' type='text/css' />");
         out.println("</head>");
-        out.println("<body class='FundoPagina'>");
-        out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
-        out.println("<p class='TituloPagina'>Cadastro de Usuários </p>");
+        out.println("<body>");
+        out.println("<div class='message-container'>");
+        out.println("<p>SGC - Sistema de Gestão de Clínicas 1.0</p>");
+        out.println("<p>Cadastro de Usuários</p>");
 
         try {
             ConexaoBancoDados conexao = new ConexaoBancoDados();
@@ -72,22 +73,27 @@ public class InserirUsuario extends HttpServlet {
 
                 if (usuario.inserirRegistro(Usuario)) {
                     out.println("<h2>Usuário cadastrado com sucesso!</h2>");
-                    out.println("<br><br><br><br>");
-                    out.println("<a href='menu_usuarios.html'>Voltar</a>");
+                    out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
                 } else {
                     out.println("<h2>Não foi possível cadastrar o usuário!</h2>");
+                    out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
                 }
 
                 conexao.fecharConexao();
             } else {
                 out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
+                out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
             }
 
         } catch (Exception erro) {
             erro.printStackTrace();
             out.println("<h2>Erro do sistema: processo de cadastro de usuário!</h2>");
+            out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
         }
-        out.println("<p class='RodapePagina'> Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</div>");
+        out.println("<footer>");
+        out.println("<p>Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</footer>");
         out.println("</body>");
         out.println("</html>");
     }        

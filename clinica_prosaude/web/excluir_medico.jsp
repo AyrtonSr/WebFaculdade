@@ -1,4 +1,3 @@
-<%@page import="model.Cusuarios"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="model.C_Medicos"%>
 <jsp:useBean id="conexao" scope="page" class="banco_dados.ConexaoBancoDados"/>
@@ -16,13 +15,13 @@
             boolean blnConectado;
             
             C_Medicos Medico = new C_Medicos();
-            int intCodigoMedico = Integer.parseInt(request.getParamenter("codigo_medico"));
+            int intCodigoMedico = Integer.parseInt(request.getParameter("codigo_medico"));
             blnConectado = false;
             
             if (conexao.abrirConexao()){
                 medico.configurarConexao(conexao.obterConexao());
                 
-                rsRegistro = usuario.lerRegistro(intCodigoMedico);
+                rsRegistro = medico.lerRegistro(intCodigoMedico);
                 
                 Medico.setNomeMedico(rsRegistro.getString("nome_medico"));
                 Medico.setCrm(rsRegistro.getString("crm"));

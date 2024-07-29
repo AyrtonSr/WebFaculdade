@@ -14,17 +14,18 @@ import model.C_Medicos;
  *
  * @author silva
  */
-public class InserirMedico extends HttpServlet {
-
+public class AtualizarMedico extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String strNomeMedico, strCRM, strCodigoEspecialidade;
+        String strNomeMedico, strCRM;
+        int intCodigoUsuario, intCodigoEspecialidade;
         PrintWriter out;
         
-        strNomeMedico = request.getParameter("txtNMedico");
-        strCRM = request.getParameter("txtCRM");
-        strCodigoEspecialidade = request.getParameter("especialidade");
+        strNomeMedico = request.getParameter("txtNomeMedico");
+        strCRM = request.getParameter("crm");
+        intCodigoEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
+        intCodigoUsuario = Integer.parseInt(request.getParameter("codigo_medico"));
         
         response.setContentType("text/html;charset=UTF-8");
         out = response.getWriter();
@@ -44,27 +45,20 @@ public class InserirMedico extends HttpServlet {
             ConexaoBancoDados conexao = new ConexaoBancoDados();
             Medicos medico = new Medicos();
             
-            int intCodigoEspecialidade;
-            try {
-                intCodigoEspecialidade = Integer.parseInt(strCodigoEspecialidade);
-            } catch (NumberFormatException e) {
-                out.println("<p>Erro: Código da especialidade inválido.</p>");
-                e.printStackTrace();
-                return;
-            }
-            
-            C_Medicos Medico = new C_Medicos (strNomeMedico.toUpperCase(),strCRM, 
-            intCodigoEspecialidade,0);
+            C_Medicos Medico = new C_Medicos(strNomeMedico.toUpperCase(),
+                    strCRM,
+                    intCodigoEspecialidade,
+                    intCodigoUsuario);
             
             if (conexao.abrirConexao()) {
                 medico.configurarConexao(conexao.obterConexao());
 
-                if (medico.inserirRegistro(Medico)) {
-                    out.println("<h2>Médico cadastrado com sucesso!</h2>");
+                if (medico.alterarRegistro(Medico)) {
+                    out.println("<h2>Dados atualizados com sucesso!</h2>");
                     out.println("<br><br><br><br>");
                     out.println("<a href='menu_medicos.html'>Voltar</a>");
                 } else {
-                    out.println("<h2>Não foi possível cadastrar o Médico!</h2>");
+                    out.println("<h2>Não foi possível atualizar os dados do Médico!</h2>");
                 }
 
                 conexao.fecharConexao();
@@ -73,11 +67,11 @@ public class InserirMedico extends HttpServlet {
             }
         } catch (Exception erro) {
             erro.printStackTrace();
-            out.println("<h2>Erro do sistema: processo de cadastro de Médico!</h2>");
+            out.println("<h2>Erro do sistema: processo de atualizar do dados de Médico!</h2>");
         }
         out.println("<p class='RodapePagina'> Copyright(c) 2024 - Editora IFAM.</p>");
         out.println("</body>");
         out.println("</html>");
+        
     }
-
 }

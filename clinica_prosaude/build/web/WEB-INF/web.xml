@@ -28,6 +28,14 @@
         <servlet-name>PesquisarMedico</servlet-name>
         <servlet-class>servlets.PesquisarMedico</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirMedico</servlet-name>
+        <servlet-class>servlets.ExcluirMedico</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarMedico</servlet-name>
+        <servlet-class>servlets.AtualizarMedico</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarUsuario</servlet-name>
         <url-pattern>/AtualizarUsuario</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>PesquisarMedico</servlet-name>
         <url-pattern>/PesquisarMedico</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirMedico</servlet-name>
+        <url-pattern>/ExcluirMedico</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarMedico</servlet-name>
+        <url-pattern>/AtualizarMedico</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

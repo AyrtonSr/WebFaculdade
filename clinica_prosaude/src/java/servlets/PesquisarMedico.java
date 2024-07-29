@@ -30,13 +30,12 @@ public class PesquisarMedico extends HttpServlet {
         out = response.getWriter();
         
         
-        
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
         out.println("<title>SGC - Versão 1.0</title>");
-        out.println("<link href='clinica_medica.css' rel='stylesheet' type='text/css' />");
+        out.println("<link href='pesquisarmedico2.css' rel='stylesheet' type='text/css' />");
         out.println("</head>");
         out.println("<body class='FundoPagina'>");
         out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
@@ -57,8 +56,8 @@ public class PesquisarMedico extends HttpServlet {
                     out.println("<h2>Nome do Médico:"+rsRegistro.getString("nome_medico")+"<br>");
                     out.println("<h2>CRM do Médico:"+rsRegistro.getString("crm")+"<br>");
                     out.println("<br><br>");
-                    out.println("<a href='editar_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Editar]</a> <a href='excluir_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Excluir]</a>");
                     out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
+                    out.println("<a href='editar_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Editar]</a> <a href='excluir_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Excluir]</a>");
                     
                 }else{
                     out.println("<h2>Médico não encontrando!</h2>" + intCodigoMedico + strMedico);
@@ -68,10 +67,12 @@ public class PesquisarMedico extends HttpServlet {
                 conexao.fecharConexao();
             }else
                 out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
+                out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
         
         }catch(Exception erro){
             erro.printStackTrace();
             out.println("<h2>Erro do sistema:processo de cadastro do Médico!</h2>");
+            out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
         }
         out.println("<p class='RodapePagina'>Copyright(c) 2024 - Editora IFAM.</p>");
         out.println("</body>");

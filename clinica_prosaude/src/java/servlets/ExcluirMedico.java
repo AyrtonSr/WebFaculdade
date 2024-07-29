@@ -8,24 +8,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.C_Medicos;
 
 /**
  *
  * @author silva
  */
-public class InserirMedico extends HttpServlet {
+public class ExcluirMedico extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String strNomeMedico, strCRM, strCodigoEspecialidade;
         PrintWriter out;
-        
-        strNomeMedico = request.getParameter("txtNMedico");
-        strCRM = request.getParameter("txtCRM");
-        strCodigoEspecialidade = request.getParameter("especialidade");
-        
         response.setContentType("text/html;charset=UTF-8");
         out = response.getWriter();
         
@@ -38,44 +31,31 @@ public class InserirMedico extends HttpServlet {
         out.println("</head>");
         out.println("<body class='FundoPagina'>");
         out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
-        out.println("<p class='TituloPagina'>Cadastro de Médico </p>");
+        out.println("<p class='TituloPagina'>Exclusão de Médicos</p>");
         
         try{
+        
             ConexaoBancoDados conexao = new ConexaoBancoDados();
             Medicos medico = new Medicos();
             
-            int intCodigoEspecialidade;
-            try {
-                intCodigoEspecialidade = Integer.parseInt(strCodigoEspecialidade);
-            } catch (NumberFormatException e) {
-                out.println("<p>Erro: Código da especialidade inválido.</p>");
-                e.printStackTrace();
-                return;
-            }
-            
-            C_Medicos Medico = new C_Medicos (strNomeMedico.toUpperCase(),strCRM, 
-            intCodigoEspecialidade,0);
-            
-            if (conexao.abrirConexao()) {
+            if (conexao.abrirConexao()){
                 medico.configurarConexao(conexao.obterConexao());
-
-                if (medico.inserirRegistro(Medico)) {
-                    out.println("<h2>Médico cadastrado com sucesso!</h2>");
+                
+                if(medico.excluirRegistro(Integer.parseInt(request.getParameter("codigo_medico")))){
+                    out.println("<h2>Registro do médico excluído com sucesso!</h2>");
                     out.println("<br><br><br><br>");
-                    out.println("<a href='menu_medicos.html'>Voltar</a>");
-                } else {
-                    out.println("<h2>Não foi possível cadastrar o Médico!</h2>");
-                }
-
+                    out.println("<a href='menu_medicos.html'>Fechar</a>");
+                } else
+                    out.println("<h2>Não foi possível excluir o registro do Médico!</h2>");                    
+                
                 conexao.fecharConexao();
-            } else {
+            } else
                 out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
-            }
-        } catch (Exception erro) {
+        } catch(Exception erro){
             erro.printStackTrace();
-            out.println("<h2>Erro do sistema: processo de cadastro de Médico!</h2>");
+            out.println("<h2>Erro do sistema:processo de exclusão de Médico!</h2>");
         }
-        out.println("<p class='RodapePagina'> Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("<p class='RodapePagina'>Copyright(c) 2015 - Editora Érica Ltda.</p>");
         out.println("</body>");
         out.println("</html>");
     }

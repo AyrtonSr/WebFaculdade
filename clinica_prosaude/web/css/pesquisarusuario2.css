@@ -1,0 +1,84 @@
+/* Estilização global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    margin-bottom: 20px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions .btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.actions .btn.voltar {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.actions .btn.voltar:hover {
+    background-color: #2980b9;
+}
+
+.actions .btn.editar {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.actions .btn.editar:hover {
+    background-color: #e67e22;
+}
+
+.actions .btn.excluir {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.actions .btn.excluir:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
