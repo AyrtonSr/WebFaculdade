@@ -16,6 +16,18 @@
         <servlet-name>PesquisarUsuario</servlet-name>
         <servlet-class>servlets.PesquisarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InserirEspecialidade</servlet-name>
+        <servlet-class>servlets.InserirEspecialidade</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirMedico</servlet-name>
+        <servlet-class>servlets.InserirMedico</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisarMedico</servlet-name>
+        <servlet-class>servlets.PesquisarMedico</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarUsuario</servlet-name>
         <url-pattern>/AtualizarUsuario</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>PesquisarUsuario</servlet-name>
         <url-pattern>/PesquisarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirEspecialidade</servlet-name>
+        <url-pattern>/InserirEspecialidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirMedico</servlet-name>
+        <url-pattern>/InserirMedico</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarMedico</servlet-name>
+        <url-pattern>/PesquisarMedico</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,7 +16,7 @@ public class ConexaoBancoDados {
     Connection conBanco;
     
     public boolean abrirConexao(){
-        String url = "jdbc:mysql://localhost/clinica_medica?user=root&password=root&TimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+        String url = "jdbc:mysql://localhost/clinica_medica?user=root&password=Ayrton219sql!&TimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
                 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");

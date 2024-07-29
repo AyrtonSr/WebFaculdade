@@ -8,7 +8,7 @@ public class TesteConexao {
     public static void main(String[] args) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/clinica_medica", "root", "root");
+            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/clinica_medica", "root", "Ayrton219sql!");
             if (conexao != null) {
                 System.out.println("Conexão estabelecida com sucesso!");
                 conexao.close();

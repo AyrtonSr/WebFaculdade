@@ -1,7 +1,7 @@
 package servlets;
 
 import banco_dados.ConexaoBancoDados;
-import banco_dados.Usuarios;
+import banco_dados.Medicos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -12,22 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Emmerson
+ * @author silva
  */
-public class PesquisarUsuario extends HttpServlet {
-     
+public class PesquisarMedico extends HttpServlet {
+
     @Override
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ResultSet rsRegistro;
         PrintWriter out;
-        String strUsuario;
-        int intCodigoUsuario;
+        String strMedico;
+        int intCodigoMedico;
         
-        strUsuario = request.getParameter("txtUsuario");
-        
+        strMedico = request.getParameter("txtCRM");
+        System.out.println(strMedico + "TESTE1");
         response.setContentType("text/html;charset=UTF-8");
         out = response.getWriter();
+        
+        
         
         out.println("<!DOCTYPE html>");
         out.println("<html>");
@@ -38,26 +40,28 @@ public class PesquisarUsuario extends HttpServlet {
         out.println("</head>");
         out.println("<body class='FundoPagina'>");
         out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
-        out.println("<p class='TituloPagina'>Cadastro de Usuários </p>");
+        out.println("<p class='TituloPagina'>Cadastro de Médico </p>");
         
         try{
             ConexaoBancoDados conexao = new ConexaoBancoDados();
-            Usuarios usuario = new Usuarios();
+            Medicos medico = new Medicos();
             
             if(conexao.abrirConexao()){
-                usuario.configurarConexao(conexao.obterConexao());
+                medico.configurarConexao(conexao.obterConexao());
                 
-                intCodigoUsuario = usuario.localizarRegistro(strUsuario.toUpperCase());
+                intCodigoMedico = medico.localizarRegistro(strMedico.toUpperCase());
                 
-                if(intCodigoUsuario != 0){
-                    rsRegistro = usuario.lerRegistro(intCodigoUsuario);
+                if(intCodigoMedico != 0){
+                    rsRegistro = medico.lerRegistro(intCodigoMedico);
                     
-                    out.println("<h2>Identificação do uduário:"+rsRegistro.getString("Identificacao_Usuario")+"<br>");
+                    out.println("<h2>Nome do Médico:"+rsRegistro.getString("nome_medico")+"<br>");
+                    out.println("<h2>CRM do Médico:"+rsRegistro.getString("crm")+"<br>");
                     out.println("<br><br>");
-                    out.println("<a href='editar_usuario.jsp?codigo_usuario="+intCodigoUsuario+"'>[Editar]</a> <a href='excluir_usuario.jsp?codigo_usuario="+intCodigoUsuario+"'>[Excluir]</a>");
+                    out.println("<a href='editar_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Editar]</a> <a href='excluir_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Excluir]</a>");
                     out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
+                    
                 }else{
-                    out.println("<h2>Usuário não encontrando!</h2>");
+                    out.println("<h2>Médico não encontrando!</h2>" + intCodigoMedico + strMedico);
                     out.println("<br><br><br>");
                     out.println("<p class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></p>");                    
                 }
@@ -67,7 +71,7 @@ public class PesquisarUsuario extends HttpServlet {
         
         }catch(Exception erro){
             erro.printStackTrace();
-            out.println("<h2>Erro do sistema:processo de cadastro do usuário!</h2>");
+            out.println("<h2>Erro do sistema:processo de cadastro do Médico!</h2>");
         }
         out.println("<p class='RodapePagina'>Copyright(c) 2024 - Editora IFAM.</p>");
         out.println("</body>");
@@ -75,4 +79,3 @@ public class PesquisarUsuario extends HttpServlet {
     }
 
 }
-    

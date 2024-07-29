@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="model.C_Usuarios"%>
 <jsp:useBean id="conexao" scope="page" class="banco_dados.ConexaoBancoDados"/>
@@ -7,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>SGC - Vers√£o 1.0</title>
+        <title>SGC - Vers„o 1.0</title>
         <link href="clinica_medica.css" rel="stylesheet" type="text/css" />
     </head>
     <body class="FundoPagina">
@@ -45,44 +44,44 @@
                 blnConectado = true;
             }
             else
-                out.println("<p>Falha na conex√£o com o banco de dados!</p>");
+                out.println("<p>Falha na conex„o com o banco de dados!</p>");
         %>
                 
         <% if (blnConectado) {%>
-        <p class="TituloAplicacao">SGC - Sistema de Gest√£o de Cl√≠nicas 1.0</p>
-        <p class="TituloPagina">Cadastro de Funcion√°rios - Edi√ß√£o</p>
+        <p class="TituloAplicacao">SGC - Sistema de Gest„o de ClÌnicas 1.0</p>
+        <p class="TituloPagina">Cadastro de Funcion·rios - EdiÁ„o</p>
 
-        <form name="formEditaUsuario" method="post" action="atualizarUsuario" target="_parent">
-              <p>Nome do usu√°rio: <input type="text" name="txtNomeUsuario" size="20" maxlength="20" value="<%=Usuario.getIdUsuario()%>"/></p>
+        <form name="formEditaUsuario" method="post" action="AtualizarUsuario" target="_parent">
+              <p>Nome do usu·rio: <input type="text" name="txtNomeUsuario" size="20" maxlength="20" value="<%=Usuario.getIdUsuario()%>"/></p>
               
               <% if(Usuario.getModuloAdministrativo().equals("S")) { %>
-              <p><input name="chkAdministrativo" type="checkbox" value="ModuloAdministrativo" checked="checked" />M√≥dulo administrativo</p>
+              <p><input name="chkAdministrativo" type="checkbox" value="ModuloAdministrativo" checked="checked" />MÛdulo administrativo</p>
               <%
                 }
                 else
                 {
               %>
-              <p><input name="chkAdministrativo" type="checkbox" value="ModuloAdministrativo" />M√≥dulo administrativo</p>
+              <p><input name="chkAdministrativo" type="checkbox" value="ModuloAdministrativo" />MÛdulo administrativo</p>
               <% } %>
 
               <% if(Usuario.getCadastroFuncionario().equals("S")) { %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkFuncionario" type="checkbox" value="Funcionario" checked="checked"/>Cadastro de funcion√°rios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkFuncionario" type="checkbox" value="Funcionario" checked="checked"/>Cadastro de funcion·rios</p>
               <%
                 }
                 else
                 {
               %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkFuncionario" type="checkbox" value="Funcionario" />Cadastro de funcion√°rios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkFuncionario" type="checkbox" value="Funcionario" />Cadastro de funcion·rios</p>
               <% } %>
 
               <% if(Usuario.getCadastroUsuario().equals("S")) { %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkUsuario" type="checkbox" value="Usuario" checked="checked"/>Cadastro de usu√°rios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkUsuario" type="checkbox" value="Usuario" checked="checked"/>Cadastro de usu·rios</p>
               <%
                 }
                 else
                 {
               %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkUsuario" type="checkbox" value="Usuario" />Cadastro de usu√°rios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkUsuario" type="checkbox" value="Usuario" />Cadastro de usu·rios</p>
               <% } %>
 
               <% if(Usuario.getCadastroEspecialidade().equals("S")) { %>
@@ -96,33 +95,33 @@
               <% } %>
 
               <% if(Usuario.getCadastroMedico().equals("S")) { %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkMedico" type="checkbox" value="Medico" checked="checked"/>Cadastro de m√©dicos</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkMedico" type="checkbox" value="Medico" checked="checked"/>Cadastro de mÈdicos</p>
               <%
                 }
                 else
                 {
               %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkMedico" type="checkbox" value="Medico" />Cadastro de m√©dicos</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkMedico" type="checkbox" value="Medico" />Cadastro de mÈdicos</p>
               <% } %>
 
               <% if(Usuario.getCadastroConvenio().equals("S")) { %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkConvenio" type="checkbox" value="Convenio" checked="checked"/>Cadastro de conv√™nios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkConvenio" type="checkbox" value="Convenio" checked="checked"/>Cadastro de convÍnios</p>
               <%
                 }
                 else
                 {
               %>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkConvenio" type="checkbox" value="Convenio" />Cadastro de conv√™nios</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="chkConvenio" type="checkbox" value="Convenio" />Cadastro de convÍnios</p>
               <% } %>
 
               <% if(Usuario.getModuloAgendamento().equals("S")) { %>
-              <p><input name="chkAgendamento" type="checkbox" value="ModuloAgendamento" checked="checked"/>M√≥dulo de agendamento</p>
+              <p><input name="chkAgendamento" type="checkbox" value="ModuloAgendamento" checked="checked"/>MÛdulo de agendamento</p>
               <%
                 }
                 else
                 {
               %>
-              <p><input name="chkAgendamento" type="checkbox" value="ModuloAgendamento" />M√≥dulo de agendamento</p>
+              <p><input name="chkAgendamento" type="checkbox" value="ModuloAgendamento" />MÛdulo de agendamento</p>
               <% } %>
 
               <% if(Usuario.getCadastroPaciente().equals("S")) { %>
@@ -156,13 +155,13 @@
               <% } %>
               
               <% if(Usuario.getModuloAtendimento().equals("S")) { %>
-              <p><input name="chkAtendimento" type="checkbox" value="ModuloAtendimento" checked="checked"/>M√≥dulo de atendimento m√©dico</p>
+              <p><input name="chkAtendimento" type="checkbox" value="ModuloAtendimento" checked="checked"/>MÛdulo de atendimento mÈdico</p>
               <%
                 }
                 else
                 {
               %>
-              <p><input name="chkAtendimento" type="checkbox" value="ModuloAtendimento" />M√≥dulo de atendimento m√©dico</p>
+              <p><input name="chkAtendimento" type="checkbox" value="ModuloAtendimento" />MÛdulo de atendimento mÈdico</p>
               <% } %>
               
               <p>
@@ -175,7 +174,7 @@
               </p>
         </form>
         
-        <p class="RodapePagina">Copyright(c) 2015 - Editora √ârica Ltda.</p>
+        <p class="RodapePagina">Copyright(c) 2015 - Editora …rica Ltda.</p>
         <%}%>
     </body>
 </html>
