@@ -70,7 +70,7 @@
                 <button type="submit" name="btnExcluir">Excluir</button>
             </p>
         </form>
-        <p class="RodapePagina">Copyright(c) 2015 - Editora Érica Ltda.</p>
+        <p class="RodapePagina">Copyright(c) 2024 - Editora IFAM.</p>
     </div>
     <%}%>
 </body>

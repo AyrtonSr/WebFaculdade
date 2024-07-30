@@ -35,11 +35,12 @@ public class AtualizarMedico extends HttpServlet {
         out.println("<head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
         out.println("<title>SGC - Versão 1.0</title>");
-        out.println("<link href='clinica_medica.css' rel='stylesheet' type='text/css' />");
+        out.println("<link href='css/atualizarmedico.css' rel='stylesheet' type='text/css' />");
         out.println("</head>");
-        out.println("<body class='FundoPagina'>");
-        out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
-        out.println("<p class='TituloPagina'>Cadastro de Médico </p>");
+        out.println("<body>");
+        out.println("<div class='message-container'>");
+        out.println("<p>SGC - Sistema de Gestão de Clínicas 1.0</p>");
+        out.println("<p>Atualização de Médicos</p>");
         
         try{
             ConexaoBancoDados conexao = new ConexaoBancoDados();
@@ -55,21 +56,26 @@ public class AtualizarMedico extends HttpServlet {
 
                 if (medico.alterarRegistro(Medico)) {
                     out.println("<h2>Dados atualizados com sucesso!</h2>");
-                    out.println("<br><br><br><br>");
-                    out.println("<a href='menu_medicos.html'>Voltar</a>");
+                    out.println("<a class='btn-voltar' href='menu_medicos.html'>Voltar</a>");
                 } else {
-                    out.println("<h2>Não foi possível atualizar os dados do Médico!</h2>");
+                    out.println("<h2>>Não foi possível atualizar os dados do Médico!</h2>");
+                    out.println("<a class='btn-voltar' href='menu_medicos.html'>Voltar</a>");
                 }
 
                 conexao.fecharConexao();
             } else {
                 out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
+                out.println("<a class='btn-voltar' href='menu_medicos.html'>Voltar</a>");
             }
         } catch (Exception erro) {
             erro.printStackTrace();
             out.println("<h2>Erro do sistema: processo de atualizar do dados de Médico!</h2>");
+            out.println("<a class='btn-voltar' href='menu_medicos.html'>Voltar</a>");
         }
-        out.println("<p class='RodapePagina'> Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</div>");
+        out.println("<footer>");
+        out.println("Copyright(c) 2024 - Editora IFAM.");
+        out.println("</footer>");
         out.println("</body>");
         out.println("</html>");
         

@@ -35,7 +35,7 @@ public class PesquisarUsuario extends HttpServlet {
         out.println("<body>");
         out.println("<div class='container'>");
         out.println("<h1>SGC - Sistema de Gestão de Clínicas 1.0</h1>");
-        out.println("<h2>Cadastro de Usuários</h2>");
+        out.println("<h2>Edição de Usuários</h2>");
         
         try {
             ConexaoBancoDados conexao = new ConexaoBancoDados();

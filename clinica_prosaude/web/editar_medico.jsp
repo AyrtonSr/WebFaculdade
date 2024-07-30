@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8">
         <title>SGC - Versão 1.0</title>
-        <link href="clinica_medica.css" rel="stylesheet" type="text/css" />
+        <link href="css/editarmedico.css" rel="stylesheet" type="text/css" />
     </head>
-    <body class="FundoPagina">
+    <body>
         <%
             ResultSet rsRegistro;
             boolean blnConectado;
@@ -36,30 +36,50 @@
         %>
         
         <% if (blnConectado) {%>
-            <p class="TituloAplicacao">SGC - Sistema de Gestão de Clínicas 1.0</p>
-            <p class="TituloPagina">Cadastro de Médico - Edição</p>
-            
+        <div class="header">
+            <h1>SGC - Sistema de Gestão de Clínicas 1.0</h1>
+            <h2>Cadastro de Médico - Edição</h2>
+        </div>
+        
+        <div class="container">
             <form name="formEditaMedico" method="post" action="AtualizarMedico" target="_parent">
-                <p>Nome do Médico <input type="text" name="txtNomeMedico" size="20" maxlength="50" value="<%=Medico.getNomeMedico()%>"/></p>
-                <p>Especialidades: </p>
+                <div class="form-group">
+                    <label for="txtNomeMedico">Nome do Médico:</label>
+                    <input id="txtNomeMedico" name="txtNomeMedico" type="text" size="20" maxlength="50" value="<%=Medico.getNomeMedico()%>"/>
+                </div>
+                <p>Especialidades:</p>
                 <% int codigoEspecialidade = Medico.getCodespecialidade(); %>
                 
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="especialidade" type="radio" value="1" <%= (codigoEspecialidade == 1) ? "checked" : "" %> />Plantonista</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="especialidade" type="radio" value="2" <%= (codigoEspecialidade == 2) ? "checked" : "" %> />Cardiologista</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="especialidade" type="radio" value="3" <%= (codigoEspecialidade == 3) ? "checked" : "" %> />Dermatologista</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<input name="especialidade" type="radio" value="4" <%= (codigoEspecialidade == 4) ? "checked" : "" %> />Dentista</p>
+                <div class="form-group especialidade-group">
+                    <input id="plantonista" name="especialidade" type="radio" value="1" <%= (codigoEspecialidade == 1) ? "checked" : "" %> />
+                    <label for="plantonista">Plantonista</label>
+                </div>
+                <div class="form-group especialidade-group">
+                    <input id="cardiologista" name="especialidade" type="radio" value="2" <%= (codigoEspecialidade == 2) ? "checked" : "" %> />
+                    <label for="cardiologista">Cardiologista</label>
+                </div>
+                <div class="form-group especialidade-group">
+                    <input id="dermatologista" name="especialidade" type="radio" value="3" <%= (codigoEspecialidade == 3) ? "checked" : "" %> />
+                    <label for="dermatologista">Dermatologista</label>
+                </div>
+                <div class="form-group especialidade-group">
+                    <input id="dentista" name="especialidade" type="radio" value="4" <%= (codigoEspecialidade == 4) ? "checked" : "" %> />
+                    <label for="dentista">Dentista</label>
+                </div>
                 
-                <p>
-                  <input type="hidden" name="codigo_medico" value="<%=intCodigoMedico%>">
-                  <input type="hidden" name="crm" value="<%=Medico.getCrm()%>">
-                </p>
-                <br>
-                <p><input type="submit" name="btnAtualizar" value="Atualizar" />
-                  <span class="LinkVoltar"><a href="javascript:history.back()">[Voltar]</a></span>
-                </p>
+                <input type="hidden" name="codigo_medico" value="<%=intCodigoMedico%>">
+                <input type="hidden" name="crm" value="<%=Medico.getCrm()%>">
+                
+                <div class="form-actions">
+                    <a class="btn" href="javascript:history.back()">Voltar</a>
+                    <input class="btn" type="submit" name="btnAtualizar" value="Atualizar" />
+                </div>
             </form>
-        <p class="RodapePagina">Copyright(c) 2015 - Editora Érica Ltda.</p>
+        </div>
         <%}%>
         
+        <footer>
+            <p>Copyright(c) 2024 - Editora IFAM.</p>
+        </footer>
     </body>
 </html>

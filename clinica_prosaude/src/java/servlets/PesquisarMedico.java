@@ -35,11 +35,12 @@ public class PesquisarMedico extends HttpServlet {
         out.println("<head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
         out.println("<title>SGC - Versão 1.0</title>");
-        out.println("<link href='pesquisarmedico2.css' rel='stylesheet' type='text/css' />");
+        out.println("<link href='css/pesquisarmedico2.css' rel='stylesheet' type='text/css' />");
         out.println("</head>");
-        out.println("<body class='FundoPagina'>");
-        out.println("<p class='TituloAplicacao'>SGC - Sistema de Gestão de Clínicas 1.0 </p>");
-        out.println("<p class='TituloPagina'>Cadastro de Médico </p>");
+        out.println("<body>");
+        out.println("<div class='container'>");
+        out.println("<h1>SGC - Sistema de Gestão de Clínicas 1.0</h1>");
+        out.println("<h2>Edição de Médicos</h2>");
         
         try{
             ConexaoBancoDados conexao = new ConexaoBancoDados();
@@ -53,28 +54,41 @@ public class PesquisarMedico extends HttpServlet {
                 if(intCodigoMedico != 0){
                     rsRegistro = medico.lerRegistro(intCodigoMedico);
                     
-                    out.println("<h2>Nome do Médico:"+rsRegistro.getString("nome_medico")+"<br>");
-                    out.println("<h2>CRM do Médico:"+rsRegistro.getString("crm")+"<br>");
-                    out.println("<br><br>");
-                    out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
-                    out.println("<a href='editar_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Editar]</a> <a href='excluir_medico.jsp?codigo_medico="+intCodigoMedico+"'>[Excluir]</a>");
+                    out.println("<div class='user-info'>");
+                    out.println("<h3>Nome do Médico:"+rsRegistro.getString("nome_medico")+"<br>");
+                    out.println("<h3>CRM do Médico:"+rsRegistro.getString("crm")+"<br>");
+                    out.println("</div>");
+                    
+                    out.println("<div class='actions'>");
+                    out.println("<a href='javascript:history.back()' class='btn voltar'>Voltar</a>");
+                    out.println("<a href='editar_medico.jsp?codigo_medico=" + intCodigoMedico + "' class='btn editar'>Editar</a>");
+                    out.println("<a href='excluir_medico.jsp?codigo_medico=" + intCodigoMedico + "' class='btn excluir'>Excluir</a>");
+                    out.println("</div>");
                     
                 }else{
-                    out.println("<h2>Médico não encontrando!</h2>" + intCodigoMedico + strMedico);
-                    out.println("<br><br><br>");
-                    out.println("<p class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></p>");                    
+                    out.println("<h2>Médico não encontrando!</h2>");
+                    out.println("<div class='actions'>");
+                    out.println("<a href='javascript:history.back()' class='btn voltar'>Voltar</a>");
+                    out.println("</div>");
                 }
                 conexao.fecharConexao();
-            }else
+            }else{
                 out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
-                out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
-        
+                out.println("<div class='actions'>");
+                out.println("<a href='javascript:history.back()' class='btn voltar'>Voltar</a>");
+                out.println("</div>");
+            }
         }catch(Exception erro){
             erro.printStackTrace();
             out.println("<h2>Erro do sistema:processo de cadastro do Médico!</h2>");
-            out.println("<span class='LinkVoltar'><a href='javascript:history.back()'>[Voltar]</a></span>");
+            out.println("<div class='actions'>");
+            out.println("<a href='javascript:history.back()' class='btn voltar'>Voltar</a>");
+            out.println("</div>");
         }
-        out.println("<p class='RodapePagina'>Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</div>");
+        out.println("<footer>");
+        out.println("<p class='footer'>Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</footer>");
         out.println("</body>");
         out.println("</html>");
     }

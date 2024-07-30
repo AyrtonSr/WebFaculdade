@@ -110,7 +110,7 @@
         </form>
 
         <footer>
-            Copyright(c) 2015 - Editora Érica Ltda.
+            Copyright(c) 2024 - Editora IFAM.
         </footer>
     <% } %>
 </body>

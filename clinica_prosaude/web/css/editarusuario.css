@@ -75,6 +75,10 @@ form .action-buttons input[type="submit"] {
     box-sizing: border-box;
 }
 
+form .action-buttons input[type="submit"] {
+    height: 39px;
+}
+
 form .action-buttons a:hover,
 form .action-buttons input[type="submit"]:hover {
     background-color: #45a049;

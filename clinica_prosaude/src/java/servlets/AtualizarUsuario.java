@@ -118,7 +118,7 @@ public class AtualizarUsuario extends HttpServlet {
                 
                 if(usuario.alterarRegistro(Usuario)) {
                     out.println("<h2>Dados do usuário atualizados com sucesso!</h2>");
-                    out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
+                    out.println("<a class='btn-voltar' href='menu_administracao.html'>Voltar</a>");
                 } else {
                     out.println("<h2>Não foi possível atualizar os dados do usuário!</h2>");
                     out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
@@ -138,7 +138,7 @@ public class AtualizarUsuario extends HttpServlet {
         
         out.println("</div>");
         out.println("<footer>");
-        out.println("Copyright(c) 2015 - Editora Érica Ltda.");
+        out.println("Copyright(c) 2024 - Editora IFAM.");
         out.println("</footer>");
         out.println("</body>");
         out.println("</html>");

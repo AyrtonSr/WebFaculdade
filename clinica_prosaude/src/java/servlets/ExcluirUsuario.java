@@ -25,9 +25,9 @@ public class ExcluirUsuario extends HttpServlet {
         out.println("<link href='css/excluirusuario2.css' rel='stylesheet' type='text/css' />");
         out.println("</head>");
         out.println("<body>");
-        out.println("<div class='container'>");
+        out.println("<div class='message-container'>");
         out.println("<p>SGC - Sistema de Gestão de Clínicas 1.0</p>");
-        out.println("<p>Cadastro de Usuários</p>");
+        out.println("<p>Exclusão de Usuários</p>");
         
         try{
             ConexaoBancoDados conexao = new ConexaoBancoDados();
@@ -38,21 +38,26 @@ public class ExcluirUsuario extends HttpServlet {
                 
                 if(usuario.excluirRegistro(Integer.parseInt(request.getParameter("codigo_usuario")))){
                     out.println("<h2>Registro do usuário excluído com sucesso!</h2>");
+                    out.println("<a class='btn-voltar' href='menu_administracao.html'>Voltar</a>");
                 }else{
-                    out.println("<h2 class='error'>Não foi possível excluir o registro do usuário!</h2>");
+                    out.println("<h2>Não foi possível excluir o registro do Médico!</h2>");
+                    out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
                 }
                 conexao.fecharConexao();
             }else{
-                out.println("<h2 class='error'>Não foi possível estabelecer conexão com o banco de dados!</h2>");
+                out.println("<h2>Não foi possível estabelecer conexão com o banco de dados!</h2>");
+                out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
             }
         }catch(Exception erro){
             erro.printStackTrace();
-            out.println("<h2 class='error'>Erro do sistema: processo de exclusão do usuário!</h2>");
+            out.println("<h2>Erro do sistema:processo de exclusão de Médico!</h2>");
+            out.println("<a class='btn-voltar' href='menu_usuarios.html'>Voltar</a>");
         }
         
-        out.println("<a href='menu_usuarios.html'>Fechar</a>");
-        out.println("<p class='RodapePagina'>Copyright(c) 2015 - Editora Érica Ltda.</p>");
         out.println("</div>");
+        out.println("<footer>");
+        out.println("<p>Copyright(c) 2024 - Editora IFAM.</p>");
+        out.println("</footer>");
         out.println("</body>");
         out.println("</html>");
     }

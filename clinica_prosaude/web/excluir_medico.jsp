@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8">
         <title>SGC - Versão 1.0</title>
-        <link href="clinica_medica.css" rel="stylesheet" type="text/css" />
+        <link href="css/excluirmedico.css" rel="stylesheet" type="text/css" />
     </head>
     <body class="FundoPagina">
         <%
@@ -35,24 +35,29 @@
                 out.println("<p>Falha na conexão com o banco de dados!</p>");
         %>
         <%if (blnConectado) {%>
-        
+        <div class="container">
             <p class="TituloAplicacao">SGC - Sistema de Gestão de Clínicas 1.0</p>
-            <p class="TituloPagina">Cadastro de Médico - Exclusão</p>
+            <p class="TituloPagina">Edição de Médico - Exclusão</p>
             
             <form name="formExcluimedico" method="post" action="ExcluirMedico" target="_parent">
-              <p>Nome do Médico <%=Medico.getNomeMedico()%></p>
-              <br>
-              <p>CRM: <%=Medico.getCrm()%></p>
-              <p><input type="hidden" name="codigo_medico" value="<%=intCodigoMedico%>"></p>
-              <br>
-              <p><input type="submit" name="btnExcluir" value="Excluir" />
-                  <span class="LinkVoltar"><a href="javascript:history.back()">[Voltar]</a></span>
-              </p>
+                <div class="form-group">
+                    <label>Nome do Médico:</label>
+                    <span><%=Medico.getNomeMedico()%></span>
+                </div>
+                <div class="form-group">
+                    <label>CRM:</label>
+                    <span><%=Medico.getCrm()%></span>
+                </div>
+                <input type="hidden" name="codigo_medico" value="<%=intCodigoMedico%>">
+                <div class="form-actions">
+                    <a class="btn LinkVoltar" href="javascript:history.back()">Voltar</a>
+                    <button type="submit" name="btnExcluir">Excluir</button>
+                </div>
             </form>
-        
-        <%} else {%>
-            <h1>Foi nao</h1>
+            <footer class="RodapePagina">
+                Copyright(c) 2024 - Editora IFAM.
+            </footer>
+        </div>
         <%}%>
-        
     </body>
 </html>
