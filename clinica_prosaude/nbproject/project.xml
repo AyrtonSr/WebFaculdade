@@ -8,10 +8,10 @@
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-j-8.4.0.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.conectores_mysql-mysql-connector-j-8.4.0}</file>
-                    <path-in-war>WEB-INF/classes</path-in-war>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
@@ -22,5 +22,6 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
     </configuration>
 </project>

@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 0;
+    color: #333;
+}
+
+h2 {
+    margin-top: 10px;
+    color: #2980b9; /* Azul mais escuro */
+}
+
+.message {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.success {
+    border: 1px solid black;
+    color: #27ae60;
+}
+
+.error {
+    border: 1px solid #e74c3c; /* Vermelho para erro */
+    color: #e74c3c;
+}
+
+/* Estiliza o botão */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2980b9; /* Azul mais escuro */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1f6f9f; /* Azul mais escuro no hover */
+}
+
+.btn:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* Estiliza o link dentro do botão */
+.btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    background-color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

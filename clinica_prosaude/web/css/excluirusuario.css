@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.FundoPagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.TituloAplicacao {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.TituloPagina {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+button{
+    background-color: #FF0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 150px;
+    height: 38px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+} 
+
+button:hover, .btn:hover {
+    background-color: #CC0000;
+}
+
+.LinkVoltar a {
+    background-color: #ccc;
+    color: black;
+}
+
+.LinkVoltar a:hover {
+    background-color: #bbb;
+}
+
+.RodapePagina {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
